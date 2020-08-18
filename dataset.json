@@ -1,0 +1,26 @@
+[{
+	"id":"2",
+	"Username":"Sumit",
+	"User_Email":"Sumit@gmail.com",
+	"User_Contact":"888228888",
+	"timestamp":"201601011200"
+},
+{
+	"Course_Id" : "1",
+	"Course_Name" : "Python",
+	"Training_Id" : "1",
+	"Status" : "1",
+	"Created_At" :"13 July 2020",
+	"timestamp" : "201601011200"
+},
+{
+	"Training_Details_Id" : "1",
+	"User_Id" : "1",
+	"Course_Id" : "1",
+	"Training_Status":"1",
+	"Quiz_Marks": "0",
+	"Created_At":"13 July 2020",
+	"timestamp":"201601011200"
+}]
+
+

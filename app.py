@@ -3,7 +3,7 @@ import DB_Config
 from flask import Flask
 from flask import render_template, redirect, url_for,request,session,g
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
+app = Flask(__name__, template_folder='./templates', static_folder='./static')
 app.config['SECRET_KEY'] = 'any secret string'
 mongo = DB_Config.mongo
 
@@ -20,7 +20,6 @@ def login():
     if 'user_id' in session:
         return redirect(url_for('dashboard'))
     if request.method == 'POST':
-
         username = request.form['username']
         password = request.form['password']
         users = mongo.user.find_one({"User_Email": username})

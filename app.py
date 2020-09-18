@@ -34,10 +34,21 @@ def login():
 
 @app.route("/dashboard")
 def dashboard():
+    tech_progress=0
+    domain_progress=0
+    ld_progress=0
     technical = mongo.course.find({'Training_Id': "1"})
     domain = mongo.course.find({'Training_Id': "2"})
     learning_development = mongo.course.find({'Training_Id': "3"})
-    return render_template('user.html', technical= technical,domain = domain, learning_development = learning_development)
+    progress = mongo.Training_details.find({'User_Id': session['user_id']})
+    for val in progress:
+        if val['Training_Id'] == '1':
+            tech_progress = tech_progress+ int(val['Quiz_Marks'])
+        elif val['Training_Id'] == '2':
+            domain_progress = domain_progress+ int(val['Quiz_Marks'])
+        elif val['Training_Id'] == '3':
+            ld_progress = ld_progress+ int(val['Quiz_Marks'])
+    return render_template('user.html', technical= technical,domain = domain, learning_development = learning_development, tech_progress=tech_progress,domain_progress=domain_progress,ld_progress=ld_progress)
 
 @app.route("/logout", methods = ['GET', 'POST'])
 def logout():
